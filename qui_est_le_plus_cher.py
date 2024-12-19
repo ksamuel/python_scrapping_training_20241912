@@ -1,5 +1,6 @@
 
 import json
+import csv
 from pathlib import Path 
 
 price_list_per_shop = {}
@@ -27,6 +28,18 @@ for product_name, price_per_shop in price_list_per_shop.items():
 
 
 # display
-wall_of_shame = sorted(cumulative_price_difference.items(), key=lambda e: e[1], reverse=True)
-for shop_name, price_diff in wall_of_shame:
-    print(f"{shop_name}: {price_diff:.2f}€")
+
+with open('products/rapport.csv', "wt", encoding="utf8") as f:
+
+    writer = csv.DictWriter(f, fieldnames=["Shop name", "Cumulative price difference"], lineterminator="\n",
+                            delimiter=";", quotechar='"')
+    writer.writeheader()
+
+    wall_of_shame = sorted(cumulative_price_difference.items(), key=lambda e: e[1], reverse=True)
+    for shop_name, price_diff in wall_of_shame:
+        print(f"{shop_name}: {price_diff:.2f}€")
+
+        writer.writerow({"Shop name": shop_name, "Cumulative price difference": price_diff})
+
+
+    
