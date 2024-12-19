@@ -3,6 +3,7 @@ import string
 
 stats = {}
 
+# normalization
 with open("song.txt", "r", encoding="utf8") as f:
 
     for line in f:
@@ -11,6 +12,7 @@ with open("song.txt", "r", encoding="utf8") as f:
         for punc in string.punctuation:
             line = line.replace(punc, " ")
         
+        # processing
         words = line.split()
 
         for word in words:
@@ -19,7 +21,7 @@ with open("song.txt", "r", encoding="utf8") as f:
             else:
                 stats[word] = 1
 
-
+# display
 def obtenir_critere_de_tri(paire_cle_valeur):
     return paire_cle_valeur[1] # trier sur la valeur et non la clé
 
