@@ -12,7 +12,7 @@ class DogSpiderCustomRules(scrapy.Spider):
         links = extractor.extract_links(response)
         for link in links:
             if "e" in link.url:
-                yield scrapy.Request(link.url, callback=self.parse)
+                yield scrapy.Request(link.url, callback=self.display_title)
 
     def display_title(self, response):
         title = response.xpath("//h1/text()").get()
