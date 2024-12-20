@@ -1,0 +1,16 @@
+[project]
+name = "python-scrapping-training-20241912"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipython>=8.30.0",
+    "jupyter>=1.1.1",
+    "peewee>=3.17.8",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8.4",
+]

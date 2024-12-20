@@ -1,6 +1,5 @@
 import peewee as pw
 
-
 db = pw.SqliteDatabase("ecommerce.sqlite")
 
 
